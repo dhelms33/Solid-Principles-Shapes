@@ -15,13 +15,11 @@ class Shape:
         pass
     
 class Square(Shape):
-    """Defines a rectangle with width, height, and corner angle"""
-    def __init__(self, width, height, corner):
-        self.width = width
-        self.height = height
-        self.corner = corner
+    """Defines a square with width"""
+    def __init__(self, width):
+        self.width
     
-    def checkCorner(self):
+    def check_Corner(self):
         if self.corner == 90:
             return True
         else:
@@ -29,26 +27,33 @@ class Square(Shape):
         
 class SquareCalculator(Shape):
     """Calculates the area and perimeter of a Square"""
-    def getArea(width):
+    def get_Area(width):
         square_Area = width * width
         return square_Area
     
-    def getPerimeter(width):
+    def get_Perimeter(width):
         square_Perimeter = 4*(width)
-        return perimeter
-    
+        return square_Perimeter
+class Rectangle(Shape):
+    def __init__(self, width, height):
+        self.width = width
+        self.height = height
+        #do I need the above code?
+class RectangleCalculator(Shape):
+    def get_Area(self, width, height):
+        rectangleArea = width * height
+        return rectangleArea
+    def get_Perimeter(self, width, height):
+        rectanglePerimeter = 2*(width + height)
+        return rectanglePerimeter
 class Circle:
     """Defines a circle with radius and circumference"""
     def __init__(self, radius, height):
         self.radius = radius
-class Rectangle(Shape):
-    def get_Area(self, width, height):
-        rectangleArea = width * height
-        return rectangleArea
 
-Class CircleCalculator:
-    """Calculates the area and circumference of a circle"""
-    def getArea(radius):
+class CircleCalculator(Shape):
+"""Calculates the area and circumference of a circle"""
+    def get_Area(radius):
         circle_Area = 3.14 * radius * radius
         return circle_Area
     
