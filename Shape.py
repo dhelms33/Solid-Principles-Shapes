@@ -11,17 +11,13 @@ class Shape(ABC):
     @abstractmethod
     def getCorners(self):
         pass
+
     
-    class shapeCalculator(ABC):
+    class shapeCalculator(Shape):
         """Calculates properties of a shape"""
-        @staticmethod
-        @abstractmethod
-        def getArea(shape: Shape):
+        def area(self):
             pass
-        
-        @staticmethod
-        @abstractmethod
-        def getPerimeter(shape: Shape):
+        def perimeter(self):
             pass
 
 class Square(Shape):
@@ -45,40 +41,40 @@ class Circle(Shape):
     def __init__(self, radius):
         super().__init__(radius=radius, corners=0)
     
-    def getCorners(self):
+    def getRadius(self):
         return self.corners
 
 class SquareCalculator:
     """Calculates properties of a square"""
     @staticmethod
-    def getArea(square: Square):
-        return square.getArea()
+    def calc_Perimeter(square: Square):
+        return 4 * square.width
     
-    @staticmethod
-    def getPerimeter(square: Square):
-        return square.getPerimeter()
+    
+    def calc_Area(square: Square):
+        return square.width ** 2
 
 class RectangleCalculator:
     """Calculates properties of a rectangle"""
     @staticmethod
-    def getArea(rectangle: Rectangle):
-        return rectangle.getArea()
+    def calc_Area(rectangle: Rectangle):
+        return 2 * (rectangle.width + rectangle.height)
     
     @staticmethod
-    def getPerimeter(rectangle: Rectangle):
-        return rectangle.getPerimeter()
+    def calc_Perimeter(rectangle: Rectangle):
+        return rectangle.width * rectangle.height
 
 class CircleCalculator:
     """Calculates properties of a circle"""
     @staticmethod
-    def getArea(circle: Circle):
-        return circle.getArea()
+    def calc_Area(circle: Circle):
+        return 3.14 * circle.radius ** 2
     
     @staticmethod
-    def getPerimeter(circle: Circle):
-        return circle.getPerimeter()
+    def calc_Diameter(circle: Circle):
+        return 2 * circle.radius
 
-# Example usage
+# Using the classes
 square = Square(4)
 square_calc = SquareCalculator()
 print(f"Square area: {square_calc.getArea(square)}, perimeter: {square_calc.getPerimeter(square)}, corners: {square.getCorners()}")
